@@ -91,7 +91,7 @@ OVERRIDES =. "${@['', 'runtime-${RUNTIME}:']['${RUNTIME}' != '']}"
 OVERRIDES[vardepsexclude] += "TOOLCHAIN RUNTIME"
 
 YOCTO_ALTERNATE_EXE_PATH:toolchain-clang:class-target = "${STAGING_BINDIR}/llvm-config"
-YOCTO_ALTERNATE_LIBDIR:toolchain-clang:class-target = "/${BASELIB}"
+YOCTO_ALTERNATE_LIBDIR:toolchain-clang:class-target = "/${baselib}"
 
 #YOCTO_ALTERNATE_EXE_PATH:toolchain-clang:class-target[export] = "1"
 #YOCTO_ALTERNATE_LIBDIR:toolchain-clang:class-target[export] = "1"
