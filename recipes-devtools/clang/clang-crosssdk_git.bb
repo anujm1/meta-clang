@@ -6,7 +6,7 @@ HOMEPAGE = "http://clang.llvm.org/"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/Apache-2.0-with-LLVM-exception;md5=0bcd48c3bdfef0c9d9fd17726e4b7dab"
 SECTION = "devel"
 
-PN = "clang-crosssdk-${TARGET_ARCH}"
+PN = "clang-crosssdk-${SDK_SYS}"
 
 require clang.inc
 require common-source.inc
