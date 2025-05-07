@@ -46,6 +46,10 @@ SRC_URI = "\
     file://0036-compiler-rt-Undef-_TIME_BITS-along-with-_FILE_OFFSET.patch \
     file://0037-llvm-Add-libunwind.pc.in-and-llvm-config-scripts.patch \
     file://b2929bebb6ce8d75acab4f2fde43213673cb6010.patch \
+    file://0001-Add-missing-include-to-X86MCTargetDesc.h-123320.patch \
+    file://0001-ADT-Add-cstdint-to-SmallVector-101761.patch \
+    file://0001-AMDGPU-Include-cstdint-in-AMDGPUMCTargetDesc-101766.patch \
+    file://0001-ORC-RT-Add-missing-cstdint-include.patch \
     "
 # Fallback to no-PIE if not set
 GCCPIE ??= ""
