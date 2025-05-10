@@ -50,6 +50,7 @@ SRC_URI = "\
     file://0001-ADT-Add-cstdint-to-SmallVector-101761.patch \
     file://0001-AMDGPU-Include-cstdint-in-AMDGPUMCTargetDesc-101766.patch \
     file://0001-ORC-RT-Add-missing-cstdint-include.patch \
+    file://0001-Support-Remove-ciso646-include-123578.patch \
     "
 # Fallback to no-PIE if not set
 GCCPIE ??= ""
