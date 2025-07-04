@@ -5,7 +5,10 @@ LIC_FILES_CHKSUM = "file://llvm/LICENSE.TXT;md5=${LLVMMD5SUM} \
 "
 LICENSE = "Apache-2.0-with-LLVM-exception"
 
-BASEURI ??= "${LLVM_GIT}/llvm-project;protocol=${LLVM_GIT_PROTOCOL};branch=${BRANCH}"
+LLVM_HTTP ?= "https://github.com/llvm"
+BASEURI ?= "${LLVM_HTTP}/llvm-project/releases/download/llvmorg-${PV}/llvm-project-${PV}.src.tar.xz"
+SRC_URI[sha256sum] = "8b5fcb24b4128cf04df1b0b9410ce8b1a729cb3c544e6da885d234280dedeac6"
+
 SRC_URI = "\
     ${BASEURI} \
     file://0001-libcxxabi-Find-libunwind-headers-when-LIBCXXABI_LIBU.patch \
@@ -55,10 +58,15 @@ SRC_URI = "\
 # Fallback to no-PIE if not set
 GCCPIE ??= ""
 
-S = "${TMPDIR}/work-shared/llvm-project-source-${PV}-${PR}/git"
-B = "${WORKDIR}/llvm-project-source-${PV}/build.${HOST_SYS}.${TARGET_SYS}"
+SOURCEDIR ?= "llvm-project-${PV}.src"
+
+UNPACKDIR = "${TMPDIR}/work-shared/llvm-project-source-${PV}-${PR}/sources"
+S = "${UNPACKDIR}/${SOURCEDIR}"
+B ?= "${WORKDIR}/llvm-project-source-${PV}/build.${HOST_SYS}.${TARGET_SYS}"
+
 
 # We need to ensure that for the shared work directory, the do_patch signatures match
 # The real WORKDIR location isn't a dependency for the shared workdir.
 src_patches[vardepsexclude] = "WORKDIR"
 should_apply[vardepsexclude] += "PN"
+
